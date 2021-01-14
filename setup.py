@@ -6,13 +6,13 @@ import io
 from setuptools import setup, find_packages
 
 NAME = 'sentry-dingtalk-metaapp'
-AUTHOR = 'lin'
+AUTHOR = 'Linchengzzz'
 EMAIL = '1139489076@qq.com'
 VERSION = '1.0.0'
-DESCRIPTION = 'sentry extension which can send error to dingtalk.'
+DESCRIPTION = 'sentry extension which can send error to ding-talk.'
 URL = 'https://github.com/linchengzzz/sentry-dingtalk-metaapp'
 LICENSE = 'GPL License'
-KEYWORDS = 'sentry dingtalk metaapp'
+KEYWORDS = 'Sentry DingTalk MetaApp'
 
 INSTALL_REQUIRES = [
     'sentry',

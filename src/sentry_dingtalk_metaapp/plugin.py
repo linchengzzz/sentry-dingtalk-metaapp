@@ -3,6 +3,7 @@
 
 import json
 import requests
+import sentry_dingtalk_metaapp
 from .forms import DingTalkOptionsForm
 from sentry.plugins.bases.notify import NotificationPlugin
 
@@ -10,8 +11,18 @@ DING_TALK_API = 'https://oapi.dingtalk.com/robot/send?access_token={token}'
 
 
 class DingTalkPlugin(NotificationPlugin):
-    slug = 'DingTalk: Robot'
-    title = 'DingTalk: Robot'
+    author = 'Linchengzzz'
+    author_url = 'https://github.com/linchengzzz/sentry-dingtalk-metaapp'
+    description = 'sentry extension which can send error to ding-talk'
+    resource_links = [
+        ('Source', 'https://github.com/linchengzzz/sentry-dingtalk-metaapp'),
+        ('Bug Tracker', 'https://github.com/linchengzzz/sentry-dingtalk-metaapp/issues'),
+        ('README', 'https://github.com/linchengzzz/sentry-dingtalk-metaapp/blob/master/README.md'),
+    ]
+    version = sentry_dingtalk_metaapp.VERSION
+
+    slug = 'DingTalk:Robot'
+    title = 'DingTalk:Robot'
     conf_key = slug
     conf_title = title
     project_conf_form = DingTalkOptionsForm
@@ -20,11 +31,6 @@ class DingTalkPlugin(NotificationPlugin):
         return bool(self.get_option('access_token', project))
 
     def notify_users(self, group, event, *args, **kwargs):
-        self.logger.info('Log group: ', group)
-        self.logger.info('Log event: ', event)
-        self.logger.info('Log args: ', *args)
-        self.logger.info('Log kwargs: ', **kwargs)
-
         if not self.is_configured(group.project):
             self.logger.info('ding-talk token config error')
             return None
@@ -38,7 +44,9 @@ class DingTalkPlugin(NotificationPlugin):
 
     def send_msg(self, group, event, *args, **kwargs):
         del args, kwargs
+
         error_title = u'Sentry: 检测到来自【%s】的异常' % event.project.slug
+
         data = {
             "msgtype": 'markdown',
             "markdown": {
