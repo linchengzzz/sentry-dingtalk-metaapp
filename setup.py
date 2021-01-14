@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 NAME = 'sentry-dingtalk-metaapp'
 AUTHOR = 'Linchengzzz'
 EMAIL = '1139489076@qq.com'
-VERSION = '1.0.12'
+VERSION = '1.0.13'
 DESCRIPTION = 'sentry extension which can send error to ding-talk.'
 URL = 'https://github.com/linchengzzz/sentry-dingtalk-metaapp'
 LICENSE = 'GPL License'
