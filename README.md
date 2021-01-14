@@ -7,7 +7,7 @@
 ## 安装
 
 ```bash
-$ pip install sentry_dingtalk_meta
+$ pip install sentry_dingtalk_metaapp
 ```
 
 ## 使用

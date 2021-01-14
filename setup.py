@@ -6,7 +6,7 @@ import io
 from setuptools import setup, find_packages
 
 NAME = 'sentry-dingtalk-metaapp'
-AUTHOR = 'LinCheng'
+AUTHOR = 'lin'
 EMAIL = '1139489076@qq.com'
 VERSION = '1.0.0'
 DESCRIPTION = 'sentry extension which can send error to dingtalk.'
