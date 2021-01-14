@@ -11,7 +11,7 @@ EMAIL = '1139489076@qq.com'
 VERSION = '1.0.0'
 DESCRIPTION = 'sentry extension which can send error to dingtalk.'
 URL = 'https://github.com/linchengzzz/sentry-dingtalk-metaapp'
-LICENSE = 'MIT License'
+LICENSE = 'GPL License'
 KEYWORDS = 'sentry dingtalk metaapp'
 
 INSTALL_REQUIRES = [
