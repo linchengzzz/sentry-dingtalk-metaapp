@@ -46,19 +46,25 @@ class DingTalkPlugin(NotificationPlugin):
         del args, kwargs
 
         error_title = u'Sentry: 检测到来自【%s】的异常' % event.project.slug
+        user_phone = self.get_option('phone', group.project)
 
         data = {
             "msgtype": 'markdown',
             "markdown": {
                 "title": error_title,
-                "text": u'### {title} \n\n > {message} \n\n [更多详细信息]({url})'.format(
+                "text": u'### {title} \n\n > {message} \n\n [更多详细信息]({url}) \n\n @{phone}'.format(
                     title=error_title,
-                    message=event.message,
-                    url=u'{url}events/${id}/'.format(
-                        url=group.get_adsolute_url(),
+                    message=group.message,
+                    url=u'{url}events/{id}/'.format(
+                        url=group.get_absolute_url(),
                         id=event.event_id if hasattr(event, 'event_id') else event.id
                     ),
+                    phone=user_phone
                 )
+            },
+            "at": {
+                "atMobiles": [user_phone],
+                "isAtAll": False
             }
         }
 

@@ -7,5 +7,9 @@ from django import forms
 class DingTalkOptionsForm(forms.Form):
     access_token = forms.CharField(
         max_length=255,
-        help_text='DingTalk Webhook Access_Token'
+        help_text='DingTalk webhook cccess_Token'
+    )
+    phone = forms.CharField(
+        max_length=255,
+        help_text='DingTalk Phone number'
     )
